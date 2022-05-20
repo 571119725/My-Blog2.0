@@ -1,0 +1,61 @@
+
+.data{
+  background-image:url('../../assets/statInforBack.png');
+  background-size:300px auto;
+  background-repeat: no-repeat;
+  margin-bottom:20px;
+  width:300px;
+  height:168px;
+  background-color:rgba(255,255,255,0.8);
+  border-radius:15px;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  transition: all 0.7s;
+}
+.data:hover {
+  box-shadow: 0px 15px 36px -7px #513D30;
+  transition: all 0.7s;
+}
+.data-detail{
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items:center;
+}
+.data-detail span:nth-child(1){
+  font-size:15px;
+  font-weight:bold;
+  font-family: Microsoft JhengHei;
+  margin-bottom:15px;
+  color:#b9b8b8;
+}
+.data-detail span:nth-child(2){
+  color:white;
+  font-size:20px;
+  font-weight:bold;
+  font-family: Microsoft JhengHei;
+  transition:all 0.5s ease-in-out;
+}
+.data-detail span:nth-child(2):hover{
+  transform: scale(1.2,1.2);
+  transition:all 0.5s ease-in-out;
+}
+.split-line{
+  width:2px;
+  background-color: #8590a6;
+  height:70%;
+  animation:lineHeight 2.5s ease-in-out;
+  -webkit-animation: lineHeight 2.5s ease-in-out;
+  -moz-animation: lineHeight 2.5s ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes lineHeight{
+  from {
+    height:70%;
+  }
+  to{
+    height:30%;
+  }
+}

@@ -1,0 +1,47 @@
+.personal-space{
+  margin: 0 50px 30px 50px;
+  min-width:670px;
+  padding:40px 40px 20px 40px;
+  background: rgba(255,255,255,0.8);
+  border-radius:15px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.first-block {
+  width: 500px;
+}
+.funct-title {
+  font-size: 25px;
+  font-weight: bold;
+}
+.first-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 50px;
+}
+.input-area {
+  display: flex;
+}
+.input-area input {
+  height: 30px;
+  font-size: 15px;
+  text-indent: 4px;
+  border: 0;
+  outline-style: none;
+  border-bottom: 3px rgb(72, 133, 133) solid;
+  background-color: transparent;
+  color: black;
+  margin-left: 10px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button { -webkit-appearance: none; }
+input[type="number"]{ -moz-appearance: textfield; }
+.edit-area {
+  line-height: 40px;
+  font-size: 20px;
+}
+.sec-line {
+  margin-left: 15px;
+}

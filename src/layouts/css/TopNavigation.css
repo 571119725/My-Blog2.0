@@ -1,0 +1,57 @@
+.top-navigation {
+  width: 100%;
+  height: 50px;
+  background: rgba(255,255,255,0.8);
+  display: flex;
+  justify-content: space-between;
+}
+.img-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 200px;
+  margin-left: 100px;
+}
+.top-title-img {
+  height:30px;
+  width: 150px;
+  background-image: url(../../assets/top-title.png);
+  background-repeat:no-repeat;
+  background-size:cover
+}
+.text-content {
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 15px;
+  margin:0 20px;
+  text-align: center;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+  border-bottom: 3px transparent solid;
+  transition: all 1s;
+  display: flex;
+  justify-content: space-around;
+}
+.text-content:hover {
+  border-bottom: 3px black solid;
+  transition: all 1s;
+}
+.light {
+  border-bottom: 3px black solid;
+}
+.funct-bar {
+  width: 800px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+}
+.icon-chakan {
+  margin-left: 100px;
+}
+.icon-github {
+  font-size: 20px;
+}

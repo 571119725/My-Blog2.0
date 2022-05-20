@@ -1,0 +1,71 @@
+@font-face {
+  font-family: 'iconfont';  /* Project id 3384941 */
+  src: url('//at.alicdn.com/t/font_3384941_o3168pezrtc.woff2?t=1652365116364') format('woff2'),
+       url('//at.alicdn.com/t/font_3384941_o3168pezrtc.woff?t=1652365116364') format('woff'),
+       url('//at.alicdn.com/t/font_3384941_o3168pezrtc.ttf?t=1652365116364') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-shanchu2:before {
+  content: "\e602";
+}
+
+.icon-miyue:before {
+  content: "\e64f";
+}
+
+.icon-kongjian:before {
+  content: "\e657";
+}
+
+.icon-github:before {
+  content: "\e63a";
+}
+
+.icon-fenlei:before {
+  content: "\e658";
+}
+
+.icon-xieboke:before {
+  content: "\e624";
+}
+
+.icon-shouye:before {
+  content: "\e604";
+}
+
+.icon-24gf-tags2:before {
+  content: "\e887";
+}
+
+.icon-rili:before {
+  content: "\e620";
+}
+
+.icon-sousuo:before {
+  content: "\e651";
+}
+
+.icon-qq:before {
+  content: "\e62b";
+}
+
+.icon-icon-mail:before {
+  content: "\e601";
+}
+
+.icon-24gl-eyeHide:before {
+  content: "\ea98";
+}
+
+.icon-chakan:before {
+  content: "\e613";
+}
+

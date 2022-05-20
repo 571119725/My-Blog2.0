@@ -1,0 +1,119 @@
+.show-blogs{
+  margin: 0 50px 30px 50px;
+  min-width:670px;
+  padding:40px 40px 20px 40px;
+  background: rgba(255,255,255,0.8);
+  border-radius:15px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.overview{
+  margin-bottom:20px;
+  display: flex;
+  justify-content: center;
+}
+.overview img{
+  width:150px;
+}
+.search-bar {
+  display: flex;
+  justify-content: center;
+}
+.search-bar input{
+  width: 600px;
+  height: 30px;
+  border-radius: 5px 0 0 5px;
+  border-color: lightblue;
+  border: 0;
+  font-size: 18px;
+  text-indent: 25px;
+  outline-style: none;
+}
+.icon-sousuo {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: white;
+  line-height: 30px;
+  border-radius: 0 5px 5px 0;
+  padding-right: 10px; 
+}
+.blogs-list {
+  margin-top: 20px;
+  border-radius: 5px;
+  width: 638px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.single-blog {
+  margin: 10px 0px 10px 20px;
+  width: 618px;
+  background: linear-gradient(to left,rgb(135, 158, 158),30%,rgb(188, 197, 197),45%, white);
+  background-size: 200% 200%;
+  animation: gradient-move-out 1s 1 alternate forwards;
+}   
+.single-blog:hover {
+  animation: gradient-move-in 1s 1 alternate forwards;
+}
+@keyframes gradient-move-in {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 40% 40%;
+  }
+}
+@keyframes gradient-move-out {
+  0% {
+    background-position: 40% 40%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+.time-bar {
+  display: flex;
+}
+.icon-rili {
+  font-size: 25px;
+}
+.date-infor {
+  font-size: 20px;
+  color: rgb(115, 202, 173);
+  margin-left: 15px;
+}
+.title-bar {
+  font-weight: 700;
+  font-size: 40px;
+}
+.intro-bar {
+  margin: 5px 0px;
+  width: 578px;
+  color: rgb(109, 91, 91);
+  font-weight: bold;
+  word-wrap:break-word; 
+  word-break:break-all; 
+}
+.blog-split-line {
+  width: 520px;
+  height: 2px;
+  background-color: rgb(105, 82, 128,0.6);
+  margin: auto;
+}
+.label-bar {
+  display: flex;
+  height: 20px;
+}
+.icon-24gf-tags2, .icon-fenlei {
+  line-height: 23px;
+}
+.label-infor {
+  line-height: 20px;
+  margin-left: 5px;
+  color: rgb(153, 140, 123);
+}
+.no-display {
+  display: none;
+}
