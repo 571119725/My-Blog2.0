@@ -1,16 +1,7 @@
 import '../css/ContentInfor.css'
 // import {getContentInfor} from '@/apis'
 // import { useEffect } from 'react';
-function ContentInfor(){
-  // useEffect(
-  //   () => {
-  //     getContentInfor().then(
-  //       (res) => {
-  //         console.log(res);
-  //       }
-  //     )
-  //   }
-  // )
+function ContentInfor(props){
   return (
     <div className='contact-detail'>
       <div className='wechat'>
@@ -23,11 +14,11 @@ function ContentInfor(){
         </div>
         <div className='detail-infor'>
           <div className='icon-container'><div className='iconfont icon-qq'></div></div>
-          <div><span>111111</span></div>
+          <div><span>{props.contactInfo.qq}</span></div>
         </div>
         <div className='detail-infor'>
           <div className='icon-container'><div className='iconfont icon-icon-mail'></div></div>
-          <div><span>111111</span></div>
+          <div><span>{props.contactInfo.email}</span></div>
         </div>
       </div>
     </div>

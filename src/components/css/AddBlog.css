@@ -57,6 +57,8 @@
 }
 .checkbox-layout {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .single-choose {
   width: 110px;
@@ -67,5 +69,14 @@
 }
 .single-choose label {
   color: rgb(64, 138, 103);
+  font-weight: bold;
+}
+.blog-add-info {
+  height: 20px;
+  width: 200px;
+  text-align: center;
+  padding-top: 15px;
+  color: red;
+  font-family: Microsoft JhengHei;
   font-weight: bold;
 }

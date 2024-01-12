@@ -10,6 +10,10 @@
   transition: box-shadow 0.7s;
   background: rgba(255,255,255,0.8);
 }
+.mirrorRotateVertical {
+  transform: rotateY(180deg);   /* 垂直镜像翻转 */
+  transition: all 1.5s;
+}
 .top:hover {
   box-shadow: 0px 15px 36px -7px #513D30;
   transition: all 0.7s;
@@ -78,6 +82,7 @@
   width:60px;
 }
 .head-protrait img{
+  transform: rotateY(180deg); 
   height:60px;
   width:60px;
   border-radius: 50%;

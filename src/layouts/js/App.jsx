@@ -1,9 +1,9 @@
-import {useState} from 'react'
+import React, {useState} from 'react'
 import TopNavigation from "./TopNavigation";
 import LeftPart from "./LeftPart";
 import RightPart from "./RightPart";
 import MainContent from "./MainContent";
-import { getBlogsFromDB } from '@/apis/test';
+import {checkContactInfo } from '@/apis/test';
 import { useEffect } from 'react';
 import '../css/App.css';
 import {
@@ -11,12 +11,15 @@ import {
 } from 'react-router-dom'
 function App () {
   const [visibility,setVisibility] = useState(true);
-  const [blogsList, setBlogsList] = useState([]);
+  const [contactInfo, setContactInfo] = useState([]);
+  const [lId, setLId] = useState(-1);
+  const [cId, setCId] = useState(-1);
+  const ChildRef = React.createRef();
   useEffect(
     () => {
-      getBlogsFromDB().then(
+      checkContactInfo().then(
         res => {
-          setBlogsList(res);
+          setContactInfo(res.data);
         }
       )
     },[]
@@ -26,8 +29,11 @@ function App () {
       <Router>
         <TopNavigation showBackground={() => setVisibility(!visibility)}/>
         <div className='main-content'>
-          <LeftPart />
-          <MainContent blogsList={blogsList}/>
+          <LeftPart 
+            contactInfo={contactInfo} 
+            changeLabel={(lId) => {setLId(lId);ChildRef.current.func(1, lId)}} 
+            changeClass={(cId) => {setCId(cId);ChildRef.current.func(0, cId)}}/>
+          <MainContent cid={cId} lid={lId} onRef={ChildRef}/>
           <RightPart />
         </div>
       </Router>

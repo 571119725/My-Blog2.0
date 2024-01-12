@@ -1,0 +1,23 @@
+.pagination {
+    display: flex;
+    /* width: 100%; */
+    justify-content:space-around;
+}
+.page-change{
+    cursor: pointer;
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+.page-change:hover {
+    background-color: #f0f0f0;
+}
+.choosed {
+    background-color: #80a5cd;
+    color: #fff;
+}

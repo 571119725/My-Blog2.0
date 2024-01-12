@@ -37,11 +37,25 @@
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button { -webkit-appearance: none; }
-input[type="number"]{ -moz-appearance: textfield; }
+/* input[type="number"]{ -moz-appearance: textfield; } */
 .edit-area {
   line-height: 40px;
   font-size: 20px;
 }
 .sec-line {
-  margin-left: 15px;
+  margin-left: 25px;
+}
+.save-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.blog-add-info {
+  height: 20px;
+  width: 100%;
+  text-align: center;
+  padding-top: 15px;
+  color: red;
+  font-family: Microsoft JhengHei;
+  font-weight: bold;
 }

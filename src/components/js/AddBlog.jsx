@@ -1,37 +1,81 @@
 import '../css/AddBlog.css';
-import AddButton from '@/components/js/Button1'
-import { addBlogToDB  } from '@/apis/test';
-import React,{useState} from 'react';
-import { message } from 'antd';
-import moment from 'moment';
+import { useLocation, useNavigate } from 'react-router-dom';
+import AddButton from '@/components/js/Button1';
+import { addBlogToDB, editBlog  } from '@/apis/test';
+import React,{useState, useEffect} from 'react';
+// import { message } from 'antd';
+// import moment from 'moment';
 function AddBlog () {
+  const [id, setId] = useState(-1);
   const [blogTitle,setBlogTitle] = useState('');
   const [blogIntro,setBlogIntro] = useState('');
   const [blogContent,setBlogContent] = useState('');
   const [blogClass,setBlogClass] = useState('');
-  const [blogLabel,setBlogLabel] = useState([]);
-
-  const classData = ['学习','生活','旅游','阅读'];
-  const labelData = ['js','node','mongodb','html'];
-
-  const checkEntirBlog = () => {
-    const blog = {
-      blogTitle: blogTitle,
-      blogIntro: blogIntro,
-      blogContent: blogContent,
-      blogClass: blogClass,
-      blogLabel: blogLabel,
-      moment: moment().format('YYYY-MM-DD HH:mm:ss')
-    };
-    addBlogToDB(blog).then(
-      res => {
-        if(res.code === 200) {
-          message.info('发布成功！');
-        }else{
-          console.log(res);
+  const [blogLabel,setBlogLabel] = useState('');
+  const [uploadDate, setUploadDate] = useState('');
+  const [addInfo, setAddInfo] = useState('');
+  const [state, setState] = useState(true);
+  const [edit, setEdit] = useState(false);
+  const classData = ['学习','生活','旅游','阅读','发疯'];
+  const labelData = ['前端','Java','C++','深度学习','Python','娱乐','小工具'];
+  const params = useLocation();
+  const nav = useNavigate();
+  useEffect(
+    () => {
+      if(sessionStorage.getItem("token") == null){
+        nav("/");
+      }else{
+        const blog = params.state;
+        if(blog != null){
+          setId(blog.id);
+          setBlogTitle(blog.blogTitle);
+          setBlogIntro(blog.blogIntro);
+          setBlogContent(blog.blogContent);
+          setBlogClass(blog.blogClass);
+          setBlogLabel(blog.blogLabel);
+          setUploadDate(blog.uploadDate);
+          setEdit(true);
         }
       }
-    );
+      // eslint-disable-next-line
+    },[params.state]
+  )
+  const checkEntirBlog = () => {
+    const isClick = state;
+    if(isClick){
+      const blog = {
+        blogTitle: blogTitle,
+        blogIntro: blogIntro,
+        blogContent: blogContent,
+        blogClass: blogClass,
+        blogLabel: blogLabel,
+        // moment: moment().format('YYYY-MM-DD HH:mm:ss')
+      };
+      if(!edit){
+        addBlogToDB(blog).then(
+          res => {
+            setAddInfo(res.message);
+          }
+        );
+      }else {
+        blog.id = id;
+        blog.uploadDate = uploadDate;
+        editBlog(blog).then(
+          res => {
+            setAddInfo(res.message);
+          }
+        )
+      }
+      setState(false);
+      setTimeout(function () {
+        setState(true);
+      }, 5000);
+    }else {
+      setAddInfo("请稍后再试！");
+    }
+    setTimeout(function (){
+      setAddInfo(" ");
+    }, 10000)
   }
   const formatClass = classData.map(
     (element,id) => {
@@ -41,7 +85,7 @@ function AddBlog () {
           <input 
             type='radio' 
             name='class'
-            value={element} 
+            value={id} 
             onChange={(e) => {
               setBlogClass(e.target.value)
             }}/>
@@ -55,26 +99,16 @@ function AddBlog () {
         <div key={id} className='single-choose'>
           <label>{element}</label>
           <input 
-            type='checkbox' 
-            value={element}
-            onChange={(e) => handleFormatLabel(e)}/>
+            type='radio' 
+            name='label'
+            value={id}
+            onChange={(e) => {
+              setBlogLabel(e.target.value)
+            }}/>
         </div>
       )
     }
   );
-  const handleFormatLabel = (e) => {
-    const checked = e.target.checked;
-    const selectedLabel = e.target.value;
-    var temp = blogLabel;
-    if(checked){
-      temp.push(selectedLabel);
-    }else {
-      temp = temp.filter((e) => {
-        return e !== selectedLabel;
-      });
-    };
-    setBlogLabel(temp);
-  };
   return (
     <div className='add-blog'>
       <div className="overview">
@@ -121,6 +155,7 @@ function AddBlog () {
         </div>
       </div>
       <AddButton content='添加' clickButton={checkEntirBlog}/>
+      <div className='blog-add-info'>{addInfo}</div>
     </div>
   )
 }
